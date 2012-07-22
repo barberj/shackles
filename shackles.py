@@ -14,7 +14,7 @@ def broken(obj, chain):
             if not obj:
                 return attr
 
-def getattr(obj, chain, default=None):
+def get(obj, chain, default=None):
     """Recursively walk chain. Return the value
     of the final named attribute in the chain.
 
