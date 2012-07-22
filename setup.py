@@ -7,7 +7,7 @@ import shackles
 
 setup(
     name='shackles',
-    version='0.0.1',
+    version='0.0.2',
     description='Recursive attribute tools.',
     author='Justin Barber',
     author_email='barber.justin@gmail.com',
