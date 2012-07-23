@@ -56,3 +56,15 @@ class test_shackles(TestCase):
 
         with raises(TypeError):
             shackles.get(self.obj, 'e', default=1)
+
+    def test_walk_next(self):
+        assert next(shackles.walk(self.obj, 'a')).name == 'a'
+
+    def test_walk_iter(self):
+        names=['a','b','e']
+        for i, attr in enumerate(shackles.walk(self.obj, 'a.b.e')):
+            assert names[i] == attr.name
+
+    def test_walk_raises_type_error(self):
+        with raises(AttributeError):
+            assert next(shackles.walk(self.obj, 'e'))

@@ -52,4 +52,14 @@ def get(obj, chain, *args):
     return obj
 
 def walk(obj, chain):
-    pass
+    """Recursively walk chain. Return the value
+    of the each named attribute in the chain.
+
+    If a named attribute does not exist,
+    AttributeError is raised.
+    """
+    chain = normalize_chain(chain)
+
+    for attr in chain:
+        obj = getattr(obj, attr)
+        yield obj
