@@ -32,7 +32,7 @@ def get(obj, chain, *args):
 
     if args:
         if len(args) != 1:
-            raise TypeError, '{} expected at most 3 arguments, got {}'.format(
+            raise TypeError, '{0} expected at most 3 arguments, got {1}'.format(
                 'get', len(args))
         dflt = args[0]
         dflt_set = True

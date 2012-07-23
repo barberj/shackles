@@ -43,9 +43,16 @@ class test_shackles(TestCase):
         assert shackles.get(self.obj, ('a','b')).name == 'b'
         assert shackles.get(self.obj, ('a','b','name')) == 'b'
 
+    def test_get_default(self):
+        assert shackles.get(self.obj, 'e', True) == True
+
     def test_get_raises_attribute_error(self):
         with raises(AttributeError):
-            shackles.get(self.obj,'e')
+            shackles.get(self.obj, 'e')
 
-    def test_get_default(self):
-        assert shackles.get(self.obj,'e', True) == True
+    def test_get_raises_type_error(self):
+        with raises(TypeError):
+            shackles.get(self.obj, 'e', 1, 2)
+
+        with raises(TypeError):
+            shackles.get(self.obj, 'e', default=1)
