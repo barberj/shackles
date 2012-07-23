@@ -1,6 +1,8 @@
 from unittest import TestCase
 import shackles
 
+from pytest import raises
+
 class prisoner(object):
     """Dummy object to shackle to for testing"""
     def __init__(self, name=None):
@@ -40,3 +42,10 @@ class test_shackles(TestCase):
     def test_get_tuple(self):
         assert shackles.get(self.obj, ('a','b')).name == 'b'
         assert shackles.get(self.obj, ('a','b','name')) == 'b'
+
+    def test_get_raises_attribute_error(self):
+        with raises(AttributeError):
+            shackles.get(self.obj,'e')
+
+    def test_get_default(self):
+        assert shackles.get(self.obj,'e', True) == True

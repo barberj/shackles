@@ -14,7 +14,7 @@ def broken(obj, chain):
             if not obj:
                 return attr
 
-def get(obj, chain, default=None):
+def get(obj, chain, *args):
     """Recursively walk chain. Return the value
     of the final named attribute in the chain.
 
@@ -28,6 +28,14 @@ def get(obj, chain, default=None):
 
     getattr(getattr(getattr(object, 'attr1', None), 'attr2', None), 'attr3', None)
     """
+    dflt_set = False
+
+    if args:
+        if len(args) != 1:
+            raise TypeError, '{} expected at most 3 arguments, got {}'.format(
+                'get', len(args))
+        dflt = args[0]
+        dflt_set = True
 
     if isinstance(chain, (str, unicode)):
         chain = chain.split('.')
@@ -36,7 +44,9 @@ def get(obj, chain, default=None):
         for attr in chain:
             obj = getattr(obj, attr, None)
             if not obj:
-                break
+                if dflt_set:
+                    return dflt
+                raise AttributeError
     return obj
 
 def walk(obj, chain):
