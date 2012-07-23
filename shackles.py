@@ -9,6 +9,7 @@ def normalize_chain(chain):
         raise Exception
     return chain
 
+
 def broken(obj, chain):
     """Return name of attribute where the chain
     is broken.
@@ -22,6 +23,7 @@ def broken(obj, chain):
         if not obj:
             return attr
 
+
 def get(obj, chain, *args):
     """Recursively walk chain. Return the value
     of the final named attribute in the chain.
@@ -34,14 +36,14 @@ def get(obj, chain, *args):
 
     or
 
-    getattr(getattr(getattr(object, 'attr1', None), 'attr2', None), 'attr3', None)
+    getattr(getattr(getattr(object, 'attr1', ''), 'attr2', ''), 'attr3', None)
     """
     dflt_set = False
 
     if args:
         if len(args) != 1:
-            raise TypeError, '{0} expected at most 3 arguments, got {1}'.format(
-                'get', len(args))
+            raise TypeError('{0} expected at most 3 arguments, got {1}'.format(
+                'get', len(args)))
         dflt = args[0]
         dflt_set = True
 
@@ -50,6 +52,7 @@ def get(obj, chain, *args):
     for attr in chain:
         obj = getattr(obj, attr, dflt) if dflt_set else getattr(obj, attr)
     return obj
+
 
 def walk(obj, chain):
     """Recursively walk chain. Return the value
