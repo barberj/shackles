@@ -1,9 +1,21 @@
+def normalize_chain(chain):
+    """
+    Convenience method formatting attribute chain into iterables.
+    """
+    if isinstance(chain, (str, unicode)):
+        chain = chain.split('.')
+
+    if not isinstance(chain, (list, tuple)):
+        raise Exception
+    return chain
+
 def broken(obj, chain):
     """Return name of attribute where the chain
     is broken.
 
     If chain is not broken (all attributes are represented in chain)
     nothing is returned."""
+    chain = normalize_chain(chain)
 
     if isinstance(chain, (str, unicode)):
         chain = chain.split('.')
