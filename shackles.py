@@ -49,8 +49,6 @@ def get(obj, chain, *args):
 
     for attr in chain:
         obj = getattr(obj, attr, dflt) if dflt_set else getattr(obj, attr)
-        if not obj:
-            raise AttributeError
     return obj
 
 def walk(obj, chain):
