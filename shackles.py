@@ -17,14 +17,10 @@ def broken(obj, chain):
     nothing is returned."""
     chain = normalize_chain(chain)
 
-    if isinstance(chain, (str, unicode)):
-        chain = chain.split('.')
-
-    if isinstance(chain, (list, tuple)):
-        for attr in chain:
-            obj = getattr(obj, attr, None)
-            if not obj:
-                return attr
+    for attr in chain:
+        obj = getattr(obj, attr, None)
+        if not obj:
+            return attr
 
 def get(obj, chain, *args):
     """Recursively walk chain. Return the value
@@ -51,13 +47,10 @@ def get(obj, chain, *args):
 
     chain = normalize_chain(chain)
 
-    if isinstance(chain, (list, tuple)):
-        for attr in chain:
-            obj = getattr(obj, attr, None)
-            if not obj:
-                if dflt_set:
-                    return dflt
-                raise AttributeError
+    for attr in chain:
+        obj = getattr(obj, attr, dflt) if dflt_set else getattr(obj, attr)
+        if not obj:
+            raise AttributeError
     return obj
 
 def walk(obj, chain):
