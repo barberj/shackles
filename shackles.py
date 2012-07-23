@@ -49,8 +49,7 @@ def get(obj, chain, *args):
         dflt = args[0]
         dflt_set = True
 
-    if isinstance(chain, (str, unicode)):
-        chain = chain.split('.')
+    chain = normalize_chain(chain)
 
     if isinstance(chain, (list, tuple)):
         for attr in chain:
