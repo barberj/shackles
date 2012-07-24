@@ -68,3 +68,18 @@ class test_shackles(TestCase):
     def test_walk_raises_type_error(self):
         with raises(AttributeError):
             assert next(shackles.walk(self.obj, 'e'))
+
+    def test_has_str(self):
+        assert shackles.get(self.obj, 'a.b') == True
+        assert shackles.get(self.obj, 'a.b.name') == True
+
+    def test_has_list(self):
+        assert shackles.get(self.obj, ['a','b']) == True
+        assert shackles.get(self.obj, ['a','b','name']) == True
+
+    def test_has_tuple(self):
+        assert shackles.get(self.obj, ('a','b')) == True
+        assert shackles.get(self.obj, ('a','b','name')) == True
+
+    def test_has_false(self):
+        assert shackles.get(self.obj, 'e.b') == False

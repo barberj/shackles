@@ -54,6 +54,17 @@ def get(obj, chain, *args):
     return obj
 
 
+def has(obj, chain):
+    """The result is True if the all attributes in the chain exist, False if not.
+    (This is implemented by calling get(object, chain) and seeing
+    whether it raises an exception or not.)"""
+    try:
+        get(obj,chain)
+    except AttributeError:
+        return False
+    return True
+
+
 def walk(obj, chain):
     """Recursively walk chain. Return the value
     of the each named attribute in the chain.
