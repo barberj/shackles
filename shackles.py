@@ -1,3 +1,9 @@
+try:
+    unicode
+except NameError:
+    # Python 3
+    basestring = unicode = str
+
 def normalize_chain(chain):
     """
     Convenience method formatting attribute chain into iterables.
