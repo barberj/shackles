@@ -1,8 +1,11 @@
+
 try:
     unicode
 except NameError:
     # Python 3
     basestring = unicode = str
+
+version = '1.0'
 
 def normalize_chain(chain):
     """
