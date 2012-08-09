@@ -13,6 +13,7 @@ setup(
     author='Justin Barber',
     author_email='barber.justin@gmail.com',
     url='https://github.com/barberj/shackles',
+    package_data={'shackles':["README.rst"]},
     py_modules=["shackles"],
     classifiers=(
         'License :: OSI Approved :: MIT License',
