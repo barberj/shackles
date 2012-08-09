@@ -8,10 +8,11 @@ import shackles
 setup(
     name='shackles',
     version=shackles.version,
-    description='Recursive attribute tools.',
-    long_description=open('README.rst').read(),
     author='Justin Barber',
     author_email='barber.justin@gmail.com',
+    description='Recursive attribute tools.',
+    long_description=open('README.rst').read(),
+    license="MIT",
     url='https://github.com/barberj/shackles',
     package_data={'shackles':["README.rst"]},
     py_modules=["shackles"],
