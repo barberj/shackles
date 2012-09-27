@@ -54,8 +54,7 @@ shackles.has(obj, chain)
 shackles.walk(obj, chain)
     Generate the values of the attributes in the chain by walking the named attributes in the chain from the object.
 
-    If a named attribute does not exist,
-    default is returned if provided, otherwise *AttributeError* is raised.
+    If a named attribute does not exist, *AttributeError* is raised.
 
 ::
 
