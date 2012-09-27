@@ -86,3 +86,14 @@ def walk(obj, chain):
     for attr in chain:
         obj = getattr(obj, attr)
         yield obj
+
+def attrgetter(chain, *args):
+    """
+    Returns a `get` function who's chain and default
+    has already been defined.
+
+    See `get` for behaviour
+    """
+    def _attrgetter(obj):
+        return get(obj, chain, *args)
+    return _attrgetter
