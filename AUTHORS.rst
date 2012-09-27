@@ -1,4 +1,4 @@
-shackles is writers and maintainers:
+Developers shackled to this project:
 ---------------------------------------
 
 - Justin Barber <barber.justin@gmail.com>
