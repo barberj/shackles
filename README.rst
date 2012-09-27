@@ -75,4 +75,4 @@ Contribute
     $ python setup.py develop
 
 #. Write a test which shows that the bug was fixed or that the feature works as expected.
-#. Send a pull request and bug the maintainer until it gets merged and published. :) Make sure to add yourself to `AUTHORS <https://github.com/pictage/ConfigIt/blob/master/AUTHORS.rst>`_.
+#. Send a pull request and bug the maintainer until it gets merged and published. :) Make sure to add yourself to `AUTHORS <https://github.com/barberj/shackles/blob/master/AUTHORS.rst>`_.
