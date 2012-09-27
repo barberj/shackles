@@ -15,12 +15,6 @@ obj.a.b.e = prisoner('e')
 
 class test_shackles(TestCase):
 
-    def setUp(self):
-        obj = prisoner()
-        obj.a = prisoner('a')
-        obj.a.b = prisoner('b')
-        obj.a.b.e = prisoner('e')
-
     def test_broken_chain_str(self):
         assert shackles.broken(obj, 'e') is 'e'
         assert shackles.broken(obj, 'a.b') is None
