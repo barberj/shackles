@@ -5,8 +5,7 @@ Shackles
 
 Access and inspect attributes shackled to an object.
 
-Shackles is ISC Licensed.
-
+Shackles is ISC `LICENSED <https://github.com/barberj/shackles/blob/master/LICENSED.rst>`_.
 
 Installation
 ------------
