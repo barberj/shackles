@@ -83,17 +83,17 @@ class test_shackles(TestCase):
     def test_has_false(self):
         assert shackles.has(obj, 'e.b') == False
 
-    def test_get_str(self):
+    def test_attrgetter_str(self):
         assert shackles.attrgetter('a.b')(obj).name == 'b'
         assert shackles.attrgetter('a.b.name')(obj) == 'b'
 
-    def test_get_list(self):
+    def test_attrgetter_list(self):
         assert shackles.attrgetter(['a','b'])(obj).name == 'b'
         assert shackles.attrgetter(['a','b','name'])(obj) == 'b'
 
-    def test_get_tuple(self):
+    def test_attrgetter_tuple(self):
         assert shackles.attrgetter(('a','b'))(obj).name == 'b'
         assert shackles.attrgetter(('a','b','name'))(obj) == 'b'
 
-    def test_get_default(self):
+    def test_attrgetter_default(self):
         assert shackles.attrgetter('e', True)(obj) == True

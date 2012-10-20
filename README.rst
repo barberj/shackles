@@ -32,7 +32,7 @@ shackles.broken(obj, chain)
 shackles.get(obj, chain[, default])
     Return value of final named attribute in chain of object.
 
-    If a named attribute does not exist,
+    If a final named attribute does not exist,
     default is returned if provided, otherwise *AttributeError* is raised.
 
 ::
@@ -62,6 +62,20 @@ shackles.walk(obj, chain)
     # a.name = 'a'; b.name = 'b'; c.name = 'c'
     # a.b = b; b.c = c
     assert next(shackles.walk(a, 'b.c')).name == 'b'
+
+shackles.attrgettr(chain[, default])
+    Return a callable object that fetches the final named attribute from its operand. The returned callable object is equivalent to shackles.get with the chain and default parameters arleady defined.
+
+    If the final named attribute does not exist,
+    default is returned if provided, otherwise *AttributeError* is raised.
+
+::
+
+    # obj.a.b = 5
+    # obj2.a.b
+    agetter = shackles.attrgetter('a.b.c', 6)
+    assert agetter(obj) == 5
+    assert agetter(obj2) == 6
 
 **For further examples refer to included tests.**
 
