@@ -4,6 +4,7 @@ Shackles
 .. image:: https://secure.travis-ci.org/barberj/shackles.png?branch=develop
 
 Access and inspect attributes shackled to an object.
+
 Shackles is ISC Licensed.
 
 
