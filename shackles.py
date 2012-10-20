@@ -1,9 +1,9 @@
-
 try:
     unicode
 except NameError:
     # Python 3
     basestring = unicode = str
+
 
 def normalize_chain(chain):
     """
@@ -84,6 +84,7 @@ def walk(obj, chain):
     for attr in chain:
         obj = getattr(obj, attr)
         yield obj
+
 
 def attrgetter(chain, *args):
     """
