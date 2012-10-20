@@ -63,7 +63,7 @@ shackles.walk(obj, chain)
     # a.b = b; b.c = c
     assert next(shackles.walk(a, 'b.c')).name == 'b'
 
-shackles.attrgettr(chain[, default])
+shackles.attrgetter(chain[, default])
     Return a callable object that fetches the final named attribute from its operand. The returned callable object is equivalent to shackles.get with the chain and default parameters arleady defined.
 
     If the final named attribute does not exist,
