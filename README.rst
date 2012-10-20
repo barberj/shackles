@@ -10,7 +10,7 @@ Shackles is MIT Licensed.
 Installation
 ------------
 
-To install configit, simply: ::
+To install shackles, simply: ::
 
     $ pip install shackles
 
